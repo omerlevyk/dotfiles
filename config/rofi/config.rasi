@@ -1,0 +1,20 @@
+
+configuration {
+    // design:
+    modi: "drun,run";
+    font: "JetBrains Mono 12";
+    drun-display-format: "{name}";
+    display-drun: " ";
+    icon-theme: "Adwaita";
+    width: 25%;
+    show-icons: true;
+    normal-window: false;
+    disable-history: false;
+    no-locations: true;
+
+    // exit if loss focus
+    click-to-exit: true;
+}
+
+@theme "~/.config/rofi/themes/gruvbox-material.rasi"
+
