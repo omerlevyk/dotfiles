@@ -69,6 +69,7 @@ exec --no-startup-id sh -c "sleep 1 && setxkbmap -layout us,il -option 'caps:esc
 
 # add flameshot snipping tool
 bindsym --release $mod+s exec --no-startup-id flameshot gui
+bindsym --release $mod+Shift+s exec --no-startup-id flameshot screen -w -c
 
 # remove the window title bar at the top of the window
 default_border pixel 2
