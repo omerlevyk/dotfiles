@@ -1,0 +1,108 @@
+set $mod Mod4
+font pango:JetBrainsMono Nerd Font 11
+#font pango:monospace 11
+
+bindsym $mod+Return exec gnome-terminal
+bindsym $mod+space exec --no-startup-id rofi -show drun
+bindsym $mod+q kill
+
+bindsym Mod1+Left  focus left
+bindsym Mod1+Right focus right
+bindsym Mod1+Down  focus down
+bindsym Mod1+Up    focus up
+
+bindsym $mod+Left  move left
+bindsym $mod+Right move right
+bindsym $mod+Down  move down
+bindsym $mod+Up    move up
+
+# workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1,
+bindsym $mod+2 workspace $ws2,
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+Page_Up workspace prev
+bindsym $mod+Page_Down workspace next
+
+# move window to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1, workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2, workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3, workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4, workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5, workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6, workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7, workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8, workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9, workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10, workspace $ws10
+bindsym $mod+Shift+Page_Up move container to workspace prev, workspace prev
+bindsym $mod+Shift+Page_Down move container to workspace next, workspace next
+
+gaps inner 8
+gaps outer 4
+
+# num lock is always on
+exec --no-startup-id numlockx on
+
+# Keyboard layout + Caps = Esc
+# exec --no-startup-id sh -c "sleep 1 && setxkbmap -layout us,il -option 'caps:escape,grp:alt_shift_toggle'"
+# exec --no-startup-id ~/.config/i3/lang_led.sh
+exec --no-startup-id sh -c "sleep 1 && setxkbmap -layout us,il -option 'caps:escape,grp:alt_shift_toggle' && ~/.config/i3/lang_led.sh"
+
+# add flameshot snipping tool
+bindsym --release $mod+s exec --no-startup-id flameshot gui
+
+# remove the window title bar at the top of the window
+default_border pixel 2
+default_floating_border pixel 2
+hide_edge_borders smart
+
+
+# add backgrount
+exec_always --no-startup-id feh --bg-scale /home/omer/Pictures/wallpapers/gruvbox_astro.jpg
+exec --no-startup-id picom --experimental-backends
+
+# status ber
+#bar {status_command i3status}
+exec --no-startup-id polybar --reload main
+
+# volume up/down
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# add brightness support
+bindsym --release $mod+F6 exec --no-startup-id sudo /usr/bin/brightnessctl set 5%-
+bindsym --release $mod+F7 exec --no-startup-id sudo /usr/bin/brightnessctl set +5%
+
+# hide mouse if not used
+exec --no-startup-id unclutter --timeout 2 
+
+# monitor maneger (dp-1-3 is work, dp-1-1 is home and edp-1 is laptop)
+exec --no-startup-id xrandr \
+  --output DP-1-3 --mode 1920x1080 --pos 0x0 \
+  --output DP-1-1 --mode 1920x1080 --pos 0x0 \
+  --output eDP-1  --mode 1920x1080 --pos 0x1080
+
+
+set $top DP-1-3
+set $bottom eDP-1
+
