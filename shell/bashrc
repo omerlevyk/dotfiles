@@ -1,0 +1,26 @@
+# interactive shell only
+case $- in
+*i*) ;;
+*) return ;;
+esac
+
+# load environment
+[ -f ~/.config/shell/env.sh ] && source ~/.config/shell/env.sh
+
+# load aliases
+[ -f ~/.config/shell/aliases.sh ] && source ~/.config/shell/aliases.sh
+
+# load prompt
+[ -f ~/.config/shell/prompt.sh ] && source ~/.config/shell/prompt.sh
+
+# tmux autostart
+[ -f ~/.config/shell/tmux.sh ] && source ~/.config/shell/tmux.sh
+
+# bash completion
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    source /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    source /etc/bash_completion
+  fi
+fi
