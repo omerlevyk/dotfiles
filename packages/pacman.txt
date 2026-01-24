@@ -1,10 +1,10 @@
 # window manager & UI
-i3
+i3-wm
 polybar
 rofi
 picom
 feh
-x11-xserver-utils
+xorg-xrandr
 
 # terminal & shell
 tmux
@@ -19,11 +19,11 @@ neovim
 # dev tools
 git
 ripgrep
-fd-find
-build-essential
+fd
+base-devel
 
 # system utilities
 pavucontrol
 alsa-utils
-network-manager
+networkmanager
 

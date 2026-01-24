@@ -1,0 +1,18 @@
+# terminal & shell
+tmux
+bash
+curl
+wget
+fzf
+
+# editor
+neovim
+
+# dev tools
+git
+ripgrep
+fd
+
+# UI / extras
+oh-my-posh
+
