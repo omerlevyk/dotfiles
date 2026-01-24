@@ -1,0 +1,120 @@
+" -----------------------------
+" BASIC SETTINGS
+" -----------------------------
+set nocompatible                    " Use modern Vim behavior
+set encoding=utf8                   " Use UTF-8 encoding
+set number                          " Show absolute line numbers
+"set relativenumber                  " Relative numbers for quick navigation
+set showmatch                       " Highlight matching brackets
+set ignorecase                      " Case-insensitive search
+set smartcase                       " If search contains uppercase → be case-sensitive
+set incsearch                       " Show search results as you type
+set hlsearch                        " Highlight all search matches
+set tabstop=4                       " Tab width = 4 spaces
+set shiftwidth=4                    " Indent width = 4 spaces
+set expandtab                       " Convert tabs to spaces
+set autoindent                      " Keep indentation from previous line
+set smartindent                     " Automatic indentation for code
+set cursorline                      " Highlight the current line
+set mouse=a                         " Enable mouse support
+set laststatus=2                    " Always display statusline
+set clipboard=unnamedplus           " Use system clipboard (copy/paste)
+syntax on                           " Enable syntax highlighting
+filetype plugin indent on           " Enable filetype-based indentation
+
+" -----------------------------
+" APPEARANCE & UI
+" -----------------------------
+set background=dark
+colorscheme gruvbox                 " Use Gruvbox theme
+set termguicolors                   " Enable 24-bit colors
+
+
+
+" Airline status bar
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enable = 1
+
+" -----------------------------
+" PLUGINS (via vim-plug)
+" -----------------------------
+call plug#begin('~/.vim/plugged')
+
+" Theme
+Plug 'morhetz/gruvbox'
+
+" Icons
+Plug 'ryanoasis/vim-devicons'
+
+" File explorer
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" Statusline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Autopairs for brackets
+Plug 'jiangmiao/auto-pairs'
+
+" Git integration
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Intellisense-like autocompletion (VSCode-level)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Better Python indentation & syntax
+Plug 'vim-scripts/indentpython.vim'
+Plug 'sheerun/vim-polyglot'
+
+" Vim terminal
+Plug 'tc50cal/vim-terminal'
+
+call plug#end()
+
+" -----------------------------
+" NERDTREE SETTINGS
+" -----------------------------
+map <C-n> :NERDTreeToggle<CR>       " Toggle file explorer
+let g:NERDTreeQuitOnOpen = 1        " Close NERDTree when opening a file
+
+" Start NERDTree. If a file is specified, move the cursor to its window.
+"?????autocmd StdinReadPre * let s:std_in=1
+"?????autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+" ???? autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+
+
+" -----------------------------
+" COC (Completion Engine)
+" -----------------------------
+" Install Python support:
+" :CocInstall coc-pyright
+
+" Coc automatically provides popup auto-completion
+" similar to VSCode.
+
+" -----------------------------
+" USEFUL KEYBINDINGS
+" -----------------------------
+" Save with Ctrl+S (normal + insert mode)
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>a
+
+" -----------------------------
+" QUALITY OF LIFE OPTIONS
+" -----------------------------
+set splitright                      " Vertical splits open to the right
+set splitbelow                      " Horizontal splits open below
+set wildmenu                        " Enhanced command-line completion menu
+set scrolloff=5
+
+" -----------------------------
+" SPELL CHECK
+" -----------------------------
+set spelllang=en                    " Spellcheck language: English
+set spell                           " Enable spell checking
+
