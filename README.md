@@ -56,6 +56,7 @@ dotfiles/
 │   ├── nvim/
 │   ├── vim/
 │   ├── ohmyposh/
+│   ├── duset/
 │   └── screenlayout/
 │
 ├── shell/
