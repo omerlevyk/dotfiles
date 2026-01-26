@@ -81,9 +81,12 @@ hide_edge_borders smart
 exec_always --no-startup-id feh --bg-scale /home/omer/Pictures/wallpapers/gruvbox_astro.jpg
 exec --no-startup-id picom --experimental-backends
 
+# monitor maneger
+exec_always --no-startup-id ~/.screenlayout/monitors.sh
+
 # status ber
-#bar {status_command i3status}
-exec --no-startup-id polybar --reload main
+exec_always --no-startup-id ~/.config/polybar/polybar_lanch.sh
+
 
 # volume up/down
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -97,13 +100,4 @@ bindsym --release $mod+F7 exec --no-startup-id sudo /usr/bin/brightnessctl set +
 # hide mouse if not used
 exec --no-startup-id unclutter --timeout 2 
 
-# monitor maneger (dp-1-3 is work, dp-1-1 is home and edp-1 is laptop)
-exec --no-startup-id xrandr \
-  --output DP-1-3 --mode 1920x1080 --pos 0x0 \
-  --output DP-1-1 --mode 1920x1080 --pos 0x0 \
-  --output eDP-1  --mode 1920x1080 --pos 0x1080
-
-
-set $top DP-1-3
-set $bottom eDP-1
 
