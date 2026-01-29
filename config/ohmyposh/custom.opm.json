@@ -1,0 +1,90 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "shell",
+          "style": "diamond",
+          "leading_diamond": "\u256d\u2500\ue0b6",
+          "background": "#3c3836",
+          "foreground": "#ebdbb2",
+          "template": "\uf120 {{ .Name }} "
+        },
+        {
+          "type": "session",
+          "style": "diamond",
+          "background": "#504945",
+          "foreground": "#83a598",
+          "leading_diamond": "\ue0b6",
+          "template": " @{{ .HostName }} "
+        },
+        {
+          "type": "git",
+          "style": "diamond",
+          "background": "#665c54",
+          "foreground": "#fabd2f",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "options": {
+            "branch_icon": "\ue725 ",
+            "fetch_status": true
+          },
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} "
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "path",
+          "style": "diamond",
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "background": "#3c3836",
+          "foreground": "#b8bb26",
+          "options": {
+            "style": "full",
+            "home_icon": "~",
+            "max_depth": 4
+          },
+          "template": " \uf07b {{ .Path }} "
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "background": "#3c3836",
+          "foreground": "#b8bb26",
+          "leading_diamond": "\ue0b6",
+          "options": {
+            "style": "austin",
+            "threshold": 150
+          },
+          "style": "diamond",
+          "template": "{{ .FormattedMs }}",
+          "trailing_diamond": "\ue0b4 ",
+          "type": "executiontime"
+        },
+        {
+          "background": "#3c3836",
+          "foreground": "#b8bb26",
+          "leading_diamond": "\ue0b6",
+          "style": "diamond",
+          "template": "\u276f",
+          "trailing_diamond": "\ue0b4",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "version": 4
+}
