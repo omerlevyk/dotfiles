@@ -28,6 +28,19 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# create all workspaces on startup (so polybar can see them)
+exec --no-startup-id i3-msg \
+  workspace $ws1; \
+  workspace $ws2; \
+  workspace $ws3; \
+  workspace $ws4; \
+  workspace $ws5; \
+  workspace $ws6; \
+  workspace $ws7; \
+  workspace $ws8; \
+  workspace $ws9; \
+  workspace $ws10
+
 # switch to workspace
 bindsym $mod+1 workspace $ws1,
 bindsym $mod+2 workspace $ws2,
@@ -76,7 +89,6 @@ default_border pixel 2
 default_floating_border pixel 2
 hide_edge_borders smart
 
-
 # add backgrount
 exec_always --no-startup-id feh --bg-scale /home/omer/Pictures/wallpapers/gruvbox_astro.jpg
 exec --no-startup-id picom --experimental-backends
@@ -86,7 +98,6 @@ exec_always --no-startup-id ~/.screenlayout/monitors.sh
 
 # status ber
 exec_always --no-startup-id ~/.config/polybar/polybar_lanch.sh
-
 
 # volume up/down
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -100,4 +111,6 @@ bindsym --release $mod+F7 exec --no-startup-id sudo /usr/bin/brightnessctl set +
 # hide mouse if not used
 exec --no-startup-id unclutter --timeout 2 
 
+# enable/disable the touch pad
+bindsym $mod+F9 exec --no-startup-id ~/.local/bin/toggle-touchpad.sh
 
