@@ -1,13 +1,14 @@
 {
-  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "$schema": "", 
   "blocks": [
     {
       "alignment": "left",
-      "segments": [
+      "segments": [  
         {
           "type": "shell",
           "style": "diamond",
           "leading_diamond": "\u256d\u2500\ue0b6",
+          "trailing_diamond": "\ue0b4",
           "background": "#3c3836",
           "foreground": "#ebdbb2",
           "template": "\uf120 {{ .Name }} "
@@ -17,7 +18,7 @@
           "style": "diamond",
           "background": "#504945",
           "foreground": "#83a598",
-          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
           "template": " @{{ .HostName }} "
         },
         {
@@ -25,7 +26,6 @@
           "style": "diamond",
           "background": "#665c54",
           "foreground": "#fabd2f",
-          "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b4",
           "options": {
             "branch_icon": "\ue725 ",
