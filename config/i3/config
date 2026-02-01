@@ -75,10 +75,8 @@ gaps outer 4
 # num lock is always on
 exec --no-startup-id numlockx on
 
-# Keyboard layout + Caps = Esc
-# exec --no-startup-id sh -c "sleep 1 && setxkbmap -layout us,il -option 'caps:escape,grp:alt_shift_toggle'"
-# exec --no-startup-id ~/.config/i3/lang_led.sh
-exec --no-startup-id sh -c "sleep 1 && setxkbmap -layout us,il -option 'caps:escape,grp:alt_shift_toggle' && ~/.config/i3/lang_led.sh"
+# Keyboard layout (Caps = Esc)
+exec --no-startup-id ~/.config/i3/lang_led.sh
 
 # add flameshot snipping tool
 bindsym --release $mod+s exec --no-startup-id flameshot gui

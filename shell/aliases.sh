@@ -7,4 +7,6 @@ alias py='python3'
 alias v='nvim'
 alias gccobj='gcc -c'
 
+alias jarvis='ollama run qwen2.5-coder:7b'
+
 alias gitdate='git add . && git commit -m "$(date +%Y-%m-%d_%H-%M)" && git push'
