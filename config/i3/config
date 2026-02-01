@@ -2,7 +2,7 @@ set $mod Mod4
 font pango:JetBrainsMono Nerd Font 11
 #font pango:monospace 11
 
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec wezterm
 bindsym $mod+space exec --no-startup-id rofi -show drun
 bindsym $mod+q kill
 
