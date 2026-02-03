@@ -2,7 +2,7 @@ set $mod Mod4
 font pango:JetBrainsMono Nerd Font 11
 #font pango:monospace 11
 
-bindsym $mod+Return exec wezterm
+bindsym $mod+Return exec gnome-terminal
 bindsym $mod+space exec --no-startup-id rofi -show drun
 bindsym $mod+q kill
 
@@ -76,7 +76,10 @@ gaps outer 4
 exec --no-startup-id numlockx on
 
 # Keyboard layout (Caps = Esc)
-exec --no-startup-id ~/.config/i3/lang_led.sh
+# Keyboard layout + Caps = Esc
+# exec --no-startup-id sh -c "sleep 1 && setxkbmap -layout us,il -option 'caps:escape,grp:alt_shift_toggle'"
+# exec --no-startup-id ~/.config/i3/lang_led.sh
+exec --no-startup-id sh -c "sleep 1 && setxkbmap -layout us,il -option 'caps:escape,grp:alt_shift_toggle' && ~/.config/i3/lang_led.sh"
 
 # add flameshot snipping tool
 bindsym --release $mod+s exec --no-startup-id flameshot gui
