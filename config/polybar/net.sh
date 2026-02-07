@@ -8,10 +8,16 @@ DEFAULT_DEV=$(ip route |
 
 case "$DEFAULT_DEV" in
 eno* | enp* | eth*)
-  echo ""
+  echo " "
   ;;
 wlo* | wlp* | wl*)
-  echo ""
+  SSID=$(iwgetid -r 2>/dev/null | cut -c1-12)
+
+  if [ -n "$SSID" ]; then
+    echo "  $SSID"
+  else
+    echo " "
+  fi
   ;;
 *)
   echo ""
