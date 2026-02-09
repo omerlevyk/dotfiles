@@ -4,10 +4,15 @@ export PATH=/usr/bin:/bin
 export HOME=/home/omer
 export KUBECONFIG=$HOME/.kube/config
 
-CTX=$(kubectl config current-context 2>/dev/null)
-
-if [ -n "$CTX" ]; then
-  echo "󰠳 $CTX"
-else
+# if there is no cluster connected
+kubectl cluster-info >/dev/null 2>&1 || {
   echo "󰠳 0"
-fi
+  exit 0
+}
+
+# counting the running pod count
+PODS=$(kubectl get pods --all-namespaces \
+  --field-selector=status.phase=Running \
+  --no-headers 2>/dev/null | wc -l)
+
+echo "󰠳 $PODS"
