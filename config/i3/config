@@ -91,7 +91,7 @@ default_floating_border pixel 2
 hide_edge_borders smart
 
 # add backgrount
-exec_always --no-startup-id feh --bg-scale /home/omer/Pictures/wallpapers/gruvbox_astro.jpg
+exec_always --no-startup-id feh --bg-scale /home/omer/Pictures/gruvbox_astro.jpg
 exec --no-startup-id picom --experimental-backends
 
 # monitor maneger

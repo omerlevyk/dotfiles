@@ -21,3 +21,4 @@ export COLORTERM=truecolor
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
