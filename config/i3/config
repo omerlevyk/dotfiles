@@ -96,6 +96,7 @@ exec --no-startup-id picom --experimental-backends
 
 # monitor maneger
 exec_always --no-startup-id ~/.screenlayout/monitors.sh
+bindsym Ctrl+Shift+p exec --no-startup-id ~/.screenlayout/monitors.sh
 
 # status ber
 exec_always --no-startup-id ~/.config/polybar/polybar_lanch.sh

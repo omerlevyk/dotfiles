@@ -28,4 +28,4 @@ alias gitdate='git add . && git commit -m "$(date +%Y-%m-%d_%H-%M)" && git push'
 alias gitlog='git log --graph --oneline --decorate'
 
 # home server
-alias homeserver='ssh homeserver@192.168.1.234'
+alias homeserver='ssh -t homeserver@192.168.1.234'
