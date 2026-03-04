@@ -6,4 +6,6 @@ while pgrep -x polybar >/dev/null; do
   sleep 0.5
 done
 
-MONITOR=eDP-1 polybar main &>/dev/null &
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+  MONITOR=$m polybar main &>/dev/null &
+done
