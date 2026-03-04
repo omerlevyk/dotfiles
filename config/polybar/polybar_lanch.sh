@@ -7,5 +7,5 @@ while pgrep -x polybar >/dev/null; do
 done
 
 for m in $(polybar --list-monitors | cut -d":" -f1); do
-  MONITOR=$m polybar main &>/dev/null &
+  MONITOR=$m polybar main >>/tmp/polybar.log 2>&1 &
 done

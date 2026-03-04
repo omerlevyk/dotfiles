@@ -12,4 +12,5 @@ elif xrandr | grep "DP-3 connected" >/dev/null; then
   ~/.config/polybar/polybar_lanch.sh
 else # laptop only
   "$BASE/laptop_only_layout.sh"
+  ~/.config/polybar/polybar_lanch.sh
 fi
