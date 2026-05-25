@@ -40,14 +40,6 @@ run ~/.config/.tmux/plugins/egel/tmux-gruvbox/gruvbox-tpm.tmux
 
 # status bar design
 set -g @tmux-gruvbox-statusbar-alpha 'true'
-
-# Make pane/window background inherit terminal transparency
-set -g window-style "bg=default"
-set -g window-active-style "bg=default"
-set -g pane-border-style "fg=color8,bg=default"
-set -g pane-active-border-style "fg=color8,bg=default"
-set -g message-style "fg=colour223,bg=default"
-set -g mode-style "fg=colour235,bg=colour223"
 set -g @tmux-gruvbox-left-status-a ' #S' # tmux's session name
 set -g @tmux-gruvbox-right-status-h ' #H' # hostname
 set -g @tmux-gruvbox-right-status-x '%b %d %Y' # date
@@ -57,6 +49,7 @@ set -g window-status-bell-style "fg=red, nobold" # alerted window is red
 
 # pane separatos
 set -g pane-border-lines simple
+set -g pane-active-border-style "fg=color8"
 
 # Plugins:
 set -g @plugin 'tmux-plugins/tpm' # Tmux Plugin Manager

@@ -3,6 +3,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias ls='ls --color=auto'
+alias bat='batcat'
 
 # programming
 alias py='python3'
@@ -11,6 +12,7 @@ alias gccobj='gcc -c'
 #screen
 alias monitor="~/.config/screenlayout/monitors.sh"
 alias m_home="~/.config/screenlayout/home_monitor_layout.sh"
+alias m_home_only="~/.config/screenlayout/home_only_loyout.sh"
 alias m_laptop="~/.config/screenlayout/laptop_only_layout.sh"
 
 # TUIs
@@ -29,3 +31,4 @@ alias gitlog='git log --graph --oneline --decorate'
 
 # home server
 alias homeserver='ssh -t homeserver@192.168.1.234'
+alias homeserverconnect='ssh -N -L 16443:127.0.0.1:6443 homeserver@192.168.1.234'

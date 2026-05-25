@@ -1,16 +1,29 @@
 #!/usr/bin/env bash
 
 BASE="$HOME/.config/screenlayout"
+WALLPAPER="$HOME/Pictures/gruvbox_astro.png"
 
-# if home monitor
-if xrandr | grep "DP-1-1 connected" >/dev/null; then
-  "$BASE/home_monitor_layout.sh"
-  ~/.config/polybar/polybar_lanch.sh
-  # if projector
-elif xrandr | grep "DP-3 connected" >/dev/null; then
-  "$BASE/projector_layout.sh"
-  ~/.config/polybar/polybar_lanch.sh
-else # laptop only
+lid_is_open() {
+  for state_file in /proc/acpi/button/lid/*/state; do
+    [ -r "$state_file" ] || continue
+    grep -qi "open" "$state_file"
+    return
+  done
+
+  return 0
+}
+
+if xrandr | grep -q "DP-1-1 connected"; then
+  if lid_is_open; then
+    "$BASE/home_and_laptop_layout.sh"
+  else
+    "$BASE/home_only_loyout.sh"
+  fi
+else
   "$BASE/laptop_only_layout.sh"
-  ~/.config/polybar/polybar_lanch.sh
 fi
+
+~/.config/polybar/polybar_lanch.sh
+
+# Re-apply wallpaper after monitor layout changes
+feh --bg-scale "$WALLPAPER"
